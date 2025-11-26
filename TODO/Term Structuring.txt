@@ -1,0 +1,426 @@
+# STRUCTURED TERM SHEET TEMPLATE
+## Based on Investment Memo Ontology Framework
+
+---
+
+## EXECUTIVE TERMS SUMMARY
+
+### Transaction Overview
+| Parameter | Value | Justification |
+|-----------|--------|---------------|
+| **Borrower** | [Company Name] | Legal entity with proven operations |
+| **Facility Type** | Senior Secured Term Loan | First lien priority on all assets |
+| **Principal Amount** | [Currency] [Amount] | Based on 3x conservative debt sizing |
+| **Term** | 5-7 years | Industry standard for turnaround |
+| **Interest Rate** | Base + [X]% | Risk-adjusted pricing per credit score |
+| **Target IRR** | 14-18% | Commensurate with risk profile |
+| **Target MOIC** | 1.4-1.5x | Including current income |
+
+---
+
+## SECTION 1: KEY COMMERCIAL TERMS
+
+### Pricing Structure
+```yaml
+Base_Rate_Components:
+  - Reference_Rate: [SOFR/STIBOR/EURIBOR] + [X]bps
+  - Credit_Spread: [X]% based on:
+      * Current leverage: [X]x
+      * Industry risk premium: [X]bps
+      * Execution risk adjustment: [X]bps
+  - Total_All_In_Rate: [X]%
+
+Pricing_Grid: (if applicable)
+  Leverage_Range:
+    - "> 4.0x": Base + 100bps
+    - "3.0x - 4.0x": Base + 50bps
+    - "< 3.0x": Base + 0bps
+
+Default_Rate: Base Rate + 500bps
+```
+
+### Fee Structure
+| Fee Type | Amount | Payment Terms | Rationale |
+|----------|---------|---------------|-----------|
+| **Origination Fee** | 2.0% | At closing | Market standard |
+| **Commitment Fee** | 50bps p.a. | Quarterly on undrawn | Compensate for capital allocation |
+| **Exit Fee** | 1.0% | At maturity/prepayment | Backend compensation |
+| **Monitoring Fee** | $5,000/month | Monthly | Cover oversight costs |
+| **Amendment Fee** | $25,000 minimum | Per amendment | Legal and admin costs |
+
+### Repayment Terms
+```yaml
+Amortization_Schedule:
+  Years_1-2: "Interest only"
+  Years_3-4: "1% quarterly"
+  Years_5+: "2.5% quarterly"
+  Bullet_at_Maturity: "Remaining principal"
+
+Mandatory_Prepayments:
+  - Asset_Sales: "100% of net proceeds > $1mm"
+  - Insurance_Proceeds: "100% > $500k"
+  - Excess_Cash_Flow:
+      Year_1: "0%"
+      Year_2: "50% if Leverage > 3.5x"
+      Year_3+: "75% if Leverage > 3.0x"
+  - Equity_Issuance: "50% of net proceeds"
+
+Voluntary_Prepayment:
+  Years_1-2: "103% of principal"
+  Year_3: "102% of principal"
+  Year_4: "101% of principal"
+  Year_5+: "100% of principal"
+```
+
+---
+
+## SECTION 2: FINANCIAL COVENANTS
+
+### Maintenance Covenants (Quarterly Testing)
+
+| Covenant | Y1Q1 | Y1Q2 | Y1Q3 | Y1Q4 | Y2+ | Headroom |
+|----------|------|------|------|------|-----|----------|
+| **Max Total Leverage** | N/A | 5.5x | 5.0x | 4.5x | Step down 0.25x/qtr to 3.5x | 30% |
+| **Min Interest Coverage** | N/A | 1.5x | 2.0x | 2.5x | 3.0x | 25% |
+| **Min Fixed Charge Coverage** | N/A | 1.0x | 1.1x | 1.2x | 1.25x | 20% |
+| **Min Liquidity** | $2mm | $2mm | $3mm | $3mm | $5mm | Absolute |
+| **Max Capex** | $[X]mm | $[X]mm | $[X]mm | $[X]mm | $[X]mm | Annual limit |
+
+### Incurrence Covenants
+```yaml
+Debt_Incurrence_Test:
+  - Ratio_Debt: "Pro forma leverage < 3.0x"
+  - Permitted_Debt_Baskets:
+      * Working_Capital_Facility: "$10mm"
+      * Purchase_Money_Debt: "$5mm"
+      * General_Basket: "Greater of $5mm or 10% EBITDA"
+
+Restricted_Payments_Test:
+  - Requires: "Pro forma leverage < 2.5x"
+  - And: "No Event of Default"
+  - And: "Minimum liquidity $10mm post-payment"
+
+Investment_Limitations:
+  - Permitted_Investments:
+      * Acquisitions: "If leverage < 3.5x post"
+      * Joint_Ventures: "$5mm annual"
+      * General: "Greater of $3mm or 5% EBITDA"
+```
+
+---
+
+## SECTION 3: NEGATIVE COVENANTS
+
+### Operational Restrictions
+| Restriction | Details | Permitted Exceptions |
+|-------------|---------|---------------------|
+| **Indebtedness** | No additional debt | • WC facility up to $10mm<br>• Purchase money debt $5mm<br>• Intercompany loans |
+| **Liens** | No additional liens | • Permitted encumbrances<br>• Purchase money liens<br>• Liens securing permitted debt |
+| **Asset Sales** | No dispositions > $1mm | • Obsolete assets<br>• Ordinary course<br>• With 100% cash consideration |
+| **Dividends** | Prohibited | • After leverage < 2.5x<br>• 50% excess cash after reserves |
+| **Affiliate Transactions** | Arms-length only | • Ordinary course<br>• Employment arrangements<br>• Board approved |
+| **Business Changes** | No fundamental changes | • Permitted reorganizations<br>• Same line of business |
+
+---
+
+## SECTION 4: SECURITY & COLLATERAL
+
+### Security Package Structure
+```yaml
+First_Priority_Liens:
+  Tangible_Assets:
+    - Real_Property:
+        Coverage: "All owned real estate"
+        Valuation: "$[X]mm"
+        Advance_Rate: "60%"
+    
+    - Equipment:
+        Coverage: "All machinery and equipment"
+        Valuation: "$[X]mm"
+        Advance_Rate: "40%"
+    
+    - Inventory:
+        Coverage: "All inventory"
+        Valuation: "$[X]mm"
+        Advance_Rate: "50%"
+  
+  Intangible_Assets:
+    - Receivables:
+        Coverage: "All accounts receivable"
+        Valuation: "$[X]mm"
+        Advance_Rate: "80%"
+    
+    - IP_Portfolio:
+        Coverage: "All patents, trademarks, copyrights"
+        Valuation: "$[X]mm"
+        Advance_Rate: "25%"
+    
+    - Contracts:
+        Coverage: "Material contracts and licenses"
+        Valuation: "Revenue stream value"
+        Advance_Rate: "Case-by-case"
+
+Guarantees:
+  - Parent_Company: "Upstream guarantee"
+  - Subsidiaries: "Downstream guarantees from all material subs"
+  - Cross_Guarantees: "Among all obligors"
+
+Pledge_of_Equity:
+  - Coverage: "100% equity in all subsidiaries"
+  - Rights: "Voting rights upon event of default"
+```
+
+### Collateral Coverage Analysis
+| Asset Category | Book Value | Liquidation Value | Advance Rate | Loan Coverage |
+|---------------|------------|-------------------|--------------|---------------|
+| Cash & Equivalents | $[X]mm | 100% | 100% | [X]% |
+| Accounts Receivable | $[X]mm | 85% | 80% | [X]% |
+| Inventory | $[X]mm | 50% | 50% | [X]% |
+| PP&E | $[X]mm | 40% | 40% | [X]% |
+| Intangibles | $[X]mm | 20% | 25% | [X]% |
+| **Total** | **$[X]mm** | **$[X]mm** | **Blended: [X]%** | **[X]%** |
+
+**Target Minimum Coverage: 150% in liquidation scenario**
+
+---
+
+## SECTION 5: CONDITIONS PRECEDENT
+
+### Documentary Conditions
+- [ ] Executed loan agreement and all schedules
+- [ ] Security documents executed and perfected
+- [ ] Legal opinions (capacity, enforceability, security)
+- [ ] Officer's certificate and secretary's certificate
+- [ ] Good standing certificates
+- [ ] Insurance policies with lender as loss payee
+- [ ] Landlord waivers and bailee letters
+
+### Financial Conditions
+- [ ] Audited financials for last 2 years
+- [ ] Interim financials no older than 45 days
+- [ ] Quality of earnings report (if required)
+- [ ] Pro forma capitalization table
+- [ ] 13-week cash flow forecast
+- [ ] Annual budget and business plan
+
+### Business Conditions
+- [ ] No Material Adverse Change
+- [ ] All regulatory approvals obtained
+- [ ] Key employment agreements in place
+- [ ] Material contracts reviewed and acceptable
+- [ ] Environmental assessment satisfactory
+- [ ] No litigation exceeding $[X]
+
+### Special Conditions (Industry/Geography Specific)
+
+#### For Swedish Companies:
+- [ ] IVO permit verification (healthcare)
+- [ ] Municipality LOV approval status
+- [ ] Företagsinteckning registration
+- [ ] F-skatt and VAT registration confirmed
+
+#### For US Healthcare/Pharma:
+- [ ] FDA compliance verification
+- [ ] Medicare/Medicaid participation status
+- [ ] DEA registration (if applicable)
+- [ ] Patent portfolio review
+
+---
+
+## SECTION 6: REPORTING & MONITORING
+
+### Financial Reporting Requirements
+| Report Type | Frequency | Deadline | Content |
+|------------|-----------|----------|---------|
+| **Monthly Financials** | Monthly | 30 days | P&L, BS, CF vs budget |
+| **Compliance Certificate** | Quarterly | 45 days | Covenant calculations |
+| **Annual Audit** | Annual | 120 days | Full audit by Big 4/recognized firm |
+| **13-Week Cash Flow** | Weekly (first 6mo), then monthly | Friday/Month-end | Rolling forecast |
+| **Board Package** | Monthly | With monthly financials | Board materials |
+
+### Operational Reporting
+```yaml
+Key_Performance_Indicators:
+  - Customer_Metrics:
+      * Customer_count
+      * Retention_rate
+      * Revenue_per_customer
+      * Collection_DSO
+  
+  - Operational_Metrics:
+      * Utilization_rates
+      * Quality_scores
+      * Employee_turnover
+      * Safety_incidents
+  
+  - Commercial_Metrics:
+      * Pipeline_value
+      * Win_rate
+      * Backlog
+      * Book_to_bill
+
+Management_Meetings:
+  - Quarterly_Business_Review: In-person/video
+  - Board_Observer_Rights: Non-voting observer
+  - Site_Visits: Annual minimum
+```
+
+---
+
+## SECTION 7: EVENTS OF DEFAULT
+
+### Payment Defaults
+- Non-payment of principal: No grace period
+- Non-payment of interest: 5 business days grace
+- Non-payment of fees: 10 business days grace
+
+### Covenant Defaults
+- Financial covenant breach: 30 days cure period (once per year)
+- Reporting covenant breach: 15 days cure period
+- Other covenant breaches: 30 days cure period after notice
+
+### Cross-Defaults
+- Cross-default threshold: Greater of $[X]mm or [X]% of total assets
+- Cross-acceleration: Immediate event of default
+
+### Other Events
+- Bankruptcy/insolvency proceedings
+- Material judgments > $[X]mm
+- Change of Control (as defined)
+- Material licenses/permits loss
+- ERISA events > $[X]mm
+- Invalidity of loan documents or security
+- Material adverse change (carefully defined)
+
+---
+
+## SECTION 8: MISCELLANEOUS PROVISIONS
+
+### Voting & Control
+```yaml
+Required_Lender_Threshold: "Lenders holding >50% of commitments"
+
+Unanimous_Consent_Items:
+  - Reduction of principal, interest, or fees
+  - Extension of maturity date
+  - Release of all/substantially all collateral
+  - Release of all/substantially all guarantors
+
+Administrative_Agent_Rights:
+  - Technical/immaterial amendments
+  - Waivers of conditions precedent
+  - Determinations under loan documents
+```
+
+### Yield Protection
+- Increased costs provisions
+- Tax gross-up (limited to withholding taxes)
+- Capital adequacy adjustments
+- Breakage costs for term SOFR
+
+### Assignments & Participations
+- Assignments permitted with borrower consent (not unreasonably withheld)
+- No consent required if event of default
+- Minimum assignment: $1,000,000
+- Participations permitted without consent
+
+### Governing Law & Jurisdiction
+- Governing Law: [New York/English/Swedish]
+- Jurisdiction: Courts of [relevant jurisdiction]
+- Waiver of jury trial
+- Waiver of sovereign immunity (if applicable)
+
+---
+
+## SECTION 9: PRECEDENT CONDITIONS SATISFACTION CHECKLIST
+
+### Week 1 - Initial Diligence
+- [ ] Management presentation received
+- [ ] Data room access granted
+- [ ] Quality of earnings engaged
+- [ ] Legal counsel engaged
+- [ ] Initial financial model built
+
+### Week 2-3 - Deep Diligence
+- [ ] Customer calls completed
+- [ ] Supplier references checked
+- [ ] Site visits conducted
+- [ ] Expert calls completed
+- [ ] Regulatory review done
+
+### Week 4 - Documentation
+- [ ] Term sheet finalized
+- [ ] Legal documentation drafted
+- [ ] Security review completed
+- [ ] IC approval obtained
+- [ ] Commitment letter issued
+
+### Week 5-6 - Closing
+- [ ] Final documentation executed
+- [ ] Conditions precedent satisfied
+- [ ] Security perfected
+- [ ] Funds transferred
+- [ ] Post-closing items identified
+
+---
+
+## SECTION 10: RISK-RETURN SUMMARY
+
+### Expected Returns Analysis
+| Scenario | Probability | Outcome | IRR | MOIC | Recovery |
+|----------|------------|---------|-----|------|----------|
+| **Base Case** | 50% | Full repayment on schedule | 15% | 1.4x | 100% |
+| **Upside** | 20% | Early prepayment in year 3 | 18% | 1.5x | 105% |
+| **Downside** | 20% | Restructuring in year 4 | 8% | 1.1x | 85% |
+| **Severe Downside** | 10% | Default in year 2 | -15% | 0.7x | 60% |
+| **Weighted Average** | 100% | **Expected outcome** | **13.1%** | **1.3x** | **92%** |
+
+### Key Risk Factors & Mitigants
+| Risk Factor | Impact | Probability | Mitigation |
+|------------|---------|-------------|------------|
+| **Customer Concentration** | High | Medium | Diversification requirements |
+| **Regulatory Changes** | High | Low | Compliance monitoring |
+| **Competition** | Medium | High | Market position covenants |
+| **Execution Risk** | High | Medium | Milestone-based funding |
+| **Key Person Risk** | Medium | Medium | Insurance requirements |
+
+---
+
+## APPROVAL SIGNATURES
+
+### Investment Committee Approval
+| Role | Name | Signature | Date | Conditions |
+|------|------|-----------|------|------------|
+| **IC Chair** | ________ | ________ | _____ | Subject to: |
+| **CRO** | ________ | ________ | _____ | • Final docs |
+| **CFO** | ________ | ________ | _____ | • Diligence |
+| **PM** | ________ | ________ | _____ | • IC conditions |
+
+### Final Recommendation
+- [ ] **APPROVED** - Proceed to documentation
+- [ ] **CONDITIONAL** - Subject to specific requirements
+- [ ] **DECLINED** - Does not meet investment criteria
+
+---
+
+*This term sheet is indicative only and subject to due diligence, documentation, and internal approvals.*
+*Version: [1.0] | Date: [Current Date] | Valid Until: [Date + 30 days]*
+
+---
+
+## APPENDICES
+
+### Appendix A: Financial Model Summary
+[Attach key pages from Excel model]
+
+### Appendix B: Comparable Transactions
+[Recent market precedents]
+
+### Appendix C: Industry Analysis
+[Sector-specific considerations]
+
+### Appendix D: Regulatory Framework
+[Applicable laws and regulations]
+
+### Appendix E: Structural Diagrams
+[Legal structure charts]

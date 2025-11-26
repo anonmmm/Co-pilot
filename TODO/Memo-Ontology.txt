@@ -1,0 +1,786 @@
+# Investment Memo Generation Ontology Framework
+## AI-Native Credit Analysis & Deal Structuring System
+
+---
+
+## 1. ONTOLOGY ARCHITECTURE
+
+### Core Concept: Connected Financial Intelligence Network
+
+Just as Qura transformed Swedish law from sequential PDFs into a living network of 276 million connections, this Investment Memo Ontology transforms financial analysis from isolated spreadsheets and documents into an interconnected knowledge graph that enables AI-native credit decisions.
+
+### The Network Structure
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                    MASTER ONTOLOGY GRAPH                     │
+├─────────────────────────────────────────────────────────────┤
+│                                                               │
+│   [Company Data Node]                                         │
+│         ├── Historical Financials (3-5 years)                │
+│         ├── Management & Ownership                           │
+│         ├── Business Model & Operations                      │
+│         └── Regulatory Compliance                            │
+│              ↓                                                │
+│   [Financial Model Node] ←→ [Industry Context Node]          │
+│         ├── Three-Statement Model                            │
+│         ├── Credit Metrics                                   │
+│         ├── Scenario Analysis                                │
+│         └── Covenant Calculations                            │
+│              ↓                                                │
+│   [Risk Assessment Node] ←→ [Market Intelligence Node]       │
+│         ├── Business Risks                                   │
+│         ├── Financial Risks                                  │
+│         ├── Operational Risks                                │
+│         └── Probability Weights                              │
+│              ↓                                                │
+│   [Deal Structure Node] ←→ [Legal Framework Node]            │
+│         ├── Facility Terms                                   │
+│         ├── Security Package                                 │
+│         ├── Covenant Design                                  │
+│         └── Recovery Analysis                                │
+│              ↓                                                │
+│   [Investment Decision Node]                                 │
+│         ├── IRR/MOIC Calculations                           │
+│         ├── Recommendation                                   │
+│         └── Conditions Precedent                             │
+│                                                               │
+└─────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 2. DATA ENTITY RELATIONSHIPS
+
+### Primary Entities and Their Connections
+
+#### Level 1: Foundation Data Entities
+```yaml
+Company_Entity:
+  attributes:
+    - company_name: string
+    - organization_number: string
+    - jurisdiction: string
+    - industry_classification: GICS/SIC/NAICS
+    - founding_date: date
+    - business_model: enum
+  
+  connections:
+    - has_financials: → Financial_Statements[]
+    - operates_in: → Industry_Entity
+    - owned_by: → Ownership_Structure
+    - managed_by: → Management_Team
+    - regulated_by: → Regulatory_Bodies[]
+    - competes_with: → Competitor_Entities[]
+
+Financial_Statements:
+  attributes:
+    - period: date_range
+    - audit_status: enum[audited, reviewed, internal]
+    - accounting_standard: enum[GAAP, IFRS, Local]
+    
+  sub_entities:
+    - Income_Statement:
+        revenue: → Revenue_Streams[]
+        costs: → Cost_Structure
+        ebitda: → EBITDA_Bridge
+    
+    - Balance_Sheet:
+        assets: → Asset_Categories[]
+        liabilities: → Debt_Structure
+        equity: → Equity_Components
+    
+    - Cash_Flow:
+        operating_cf: → Working_Capital_Drivers
+        investing_cf: → Capex_Analysis
+        financing_cf: → Debt_Service
+
+  connections:
+    - drives: → Credit_Metrics[]
+    - supports: → Valuation_Methods[]
+    - indicates: → Risk_Factors[]
+```
+
+#### Level 2: Analytical Entities
+```yaml
+Credit_Metrics:
+  core_ratios:
+    - leverage_ratios:
+        total_debt_to_ebitda: calculation
+        net_debt_to_ebitda: calculation
+        senior_debt_to_ebitda: calculation
+    
+    - coverage_ratios:
+        interest_coverage: calculation
+        fixed_charge_coverage: calculation
+        debt_service_coverage: calculation
+    
+    - liquidity_ratios:
+        current_ratio: calculation
+        quick_ratio: calculation
+        cash_ratio: calculation
+  
+  connections:
+    - determines: → Covenant_Thresholds
+    - influences: → Pricing_Terms
+    - constrains: → Debt_Capacity
+
+Risk_Matrix:
+  risk_categories:
+    - business_risks:
+        market_position: → Competitive_Analysis
+        customer_concentration: → Revenue_Analysis
+        regulatory_exposure: → Compliance_Review
+    
+    - financial_risks:
+        leverage_sustainability: → Scenario_Models
+        liquidity_adequacy: → Cash_Flow_Forecast
+        covenant_headroom: → Covenant_Analysis
+    
+    - operational_risks:
+        management_quality: → Track_Record_Analysis
+        execution_capability: → Historical_Performance
+        key_person_dependency: → Succession_Planning
+  
+  connections:
+    - requires: → Mitigation_Strategies[]
+    - impacts: → Pricing_Adjustments
+    - determines: → Structural_Features
+```
+
+#### Level 3: Deal Structuring Entities
+```yaml
+Deal_Structure:
+  facility_terms:
+    - principal_amount: → Debt_Sizing_Methods[]
+    - maturity: → Industry_Standards
+    - amortization: → Cash_Flow_Sweep
+    - interest_rate: → Risk_Premium_Calculation
+  
+  covenant_package:
+    - financial_covenants:
+        maintenance_tests: → Quarterly_Compliance
+        incurrence_tests: → Event_Based_Tests
+    
+    - negative_covenants:
+        debt_limitations: → Permitted_Baskets
+        lien_limitations: → Security_Interests
+        payment_restrictions: → Cash_Leakage_Controls
+  
+  security_structure:
+    - collateral_package: → Asset_Coverage[]
+    - guarantee_structure: → Credit_Support
+    - intercreditor: → Priority_Waterfall
+  
+  connections:
+    - references: → Simpson_Thacher_Standards
+    - complies_with: → Market_Precedents
+    - optimizes: → Risk_Return_Profile
+```
+
+---
+
+## 3. SEQUENTIAL WORKFLOW ENGINE
+
+### Phase-Based Analysis Pipeline
+
+```mermaid
+graph TD
+    A[Data Ingestion Phase] -->|Validated Data| B[Financial Modeling Phase]
+    B -->|Base Model| C[Industry Contextualization]
+    C -->|Benchmarked Analysis| D[Risk Assessment Phase]
+    D -->|Risk-Adjusted Scenarios| E[Deal Structuring Phase]
+    E -->|Proposed Terms| F[Documentation Generation]
+    F -->|Draft Memo| G[Validation & Refinement]
+    G -->|Final Output| H[Investment Memorandum]
+```
+
+### Detailed Phase Specifications
+
+#### **PHASE 1: Data Ingestion & Validation** (Steps 1-15)
+```yaml
+Step_1_Company_Identification:
+  inputs:
+    - company_name
+    - jurisdiction
+    - registration_numbers
+  
+  actions:
+    - verify_legal_entity
+    - pull_corporate_filings
+    - confirm_ownership_structure
+  
+  outputs:
+    - validated_entity_profile
+    - ownership_chart
+    - corporate_history
+
+Step_2_Financial_Data_Collection:
+  inputs:
+    - annual_reports
+    - quarterly_statements
+    - management_accounts
+  
+  actions:
+    - standardize_accounting_format
+    - identify_adjustments
+    - normalize_currencies
+  
+  outputs:
+    - standardized_financials
+    - adjustment_notes
+    - data_quality_score
+
+Step_3_to_15: [Additional ingestion steps...]
+```
+
+#### **PHASE 2: Three-Statement Modeling** (Steps 16-35)
+```yaml
+Step_16_Historical_Analysis:
+  inputs:
+    - standardized_financials
+    - industry_benchmarks
+  
+  calculations:
+    - revenue_cagr
+    - margin_evolution
+    - working_capital_trends
+    - capex_patterns
+  
+  outputs:
+    - historical_model
+    - trend_analysis
+    - anomaly_flags
+
+Step_17_Revenue_Projection:
+  methodology:
+    - segment_build_up:
+        analyze_by_product
+        analyze_by_geography
+        analyze_by_customer
+    
+    - driver_based_forecast:
+        volume_assumptions
+        price_assumptions
+        mix_assumptions
+  
+  outputs:
+    - revenue_forecast
+    - sensitivity_table
+    - key_assumptions
+
+Step_18_to_35: [Additional modeling steps...]
+```
+
+#### **PHASE 3: Risk Identification & Quantification** (Steps 36-50)
+```yaml
+Step_36_Business_Risk_Mapping:
+  analysis_framework:
+    - porter_five_forces
+    - swot_analysis
+    - competitive_positioning
+  
+  risk_scoring:
+    - probability: [0-100%]
+    - impact: [Low, Medium, High, Critical]
+    - velocity: [Slow, Medium, Fast]
+  
+  outputs:
+    - risk_register
+    - heat_map
+    - mitigation_strategies
+
+Step_37_to_50: [Additional risk steps...]
+```
+
+#### **PHASE 4: Covenant & Structure Design** (Steps 51-70)
+```yaml
+Step_51_Leverage_Covenant_Calibration:
+  inputs:
+    - projected_ebitda
+    - debt_quantum
+    - industry_norms
+    - simpson_thacher_guidelines
+  
+  calculation:
+    - opening_leverage: debt/ebitda
+    - covenant_headroom: 25-35%
+    - step_downs: quarterly/annual
+  
+  outputs:
+    - covenant_grid
+    - compliance_forecast
+    - breach_scenarios
+
+Step_52_to_70: [Additional structuring steps...]
+```
+
+#### **PHASE 5: Documentation Assembly** (Steps 71-85)
+```yaml
+Step_71_Executive_Summary_Generation:
+  components:
+    - recommendation: [Approve/Conditional/Decline]
+    - key_metrics: irr, moic, leverage
+    - highlights: top_3_5_strengths
+    - risks: top_3_5_concerns
+  
+  connections:
+    - summarizes: all_prior_analysis
+    - references: supporting_sections
+    - highlights: critical_conditions
+
+Step_72_to_85: [Additional documentation steps...]
+```
+
+---
+
+## 4. INTELLIGENT CONNECTION MAPPING
+
+### Cross-Referencing Logic
+
+Just like Qura's legal network that connects statutes to case law to guidance, our Investment Memo Ontology creates intelligent connections between:
+
+#### **Financial Statement → Risk Implication Connections**
+```yaml
+Connection_Type_1:
+  trigger: "Accounts Receivable > 25% of Revenue"
+  connects_to:
+    - Working_Capital_Risk
+    - Collection_Risk
+    - Customer_Concentration_Analysis
+  
+  implications:
+    - covenant_design: "Minimum Liquidity Covenant"
+    - pricing_impact: "+50-100bps risk premium"
+    - monitoring: "Weekly AR aging reports"
+
+Connection_Type_2:
+  trigger: "EBITDA Margin Decline > 200bps YoY"
+  connects_to:
+    - Operational_Efficiency_Issues
+    - Competitive_Pressure_Analysis
+    - Cost_Structure_Review
+  
+  implications:
+    - scenario_adjustment: "Reduce base case margins"
+    - covenant_design: "Minimum EBITDA covenant"
+    - due_diligence: "Deep dive operational review"
+```
+
+#### **Industry Context → Structure Adaptation**
+```yaml
+Swedish_Healthcare_Context:
+  municipality_contracts:
+    characteristic: "Government counterparty"
+    credit_quality: "AAA equivalent"
+  
+  structural_adaptations:
+    - advance_rates: "80-90% on municipality receivables"
+    - dscr_requirement: "1.2x instead of 1.5x"
+    - covenant_flexibility: "Looser due to payment certainty"
+  
+  regulatory_requirements:
+    - ivo_permit: "Mandatory, verify status"
+    - lov_approval: "Required for municipality work"
+    - quality_standards: "Socialstyrelsen compliance"
+
+US_Pharma_Context:
+  patent_cliff_risk:
+    characteristic: "Binary revenue event"
+    timeline: "Track expiration dates"
+  
+  structural_adaptations:
+    - amortization: "Mandatory before patent expiry"
+    - sweep_mechanism: "Cash sweep 2 years prior"
+    - milestone_payments: "Tied to FDA approvals"
+```
+
+---
+
+## 5. AI AGENT ARCHITECTURE
+
+### Multi-Agent System for Memo Generation
+
+```python
+class InvestmentMemoAI:
+    """Master orchestrator for investment memo generation"""
+    
+    def __init__(self):
+        self.agents = {
+            'data_agent': DataIngestionAgent(),
+            'modeling_agent': FinancialModelingAgent(),
+            'risk_agent': RiskAssessmentAgent(),
+            'structure_agent': DealStructuringAgent(),
+            'legal_agent': CovenantsAgent(),
+            'writing_agent': DocumentationAgent()
+        }
+        self.ontology = InvestmentOntology()
+        self.workflow = SequentialWorkflow()
+    
+    def generate_memo(self, company_data):
+        # Phase 1: Parallel data gathering
+        context = self.build_context(company_data)
+        
+        # Phase 2: Sequential analysis with feedback loops
+        financial_model = self.agents['modeling_agent'].build_model(context)
+        risk_assessment = self.agents['risk_agent'].assess(financial_model)
+        
+        # Phase 3: Iterative structuring
+        deal_structure = self.optimize_structure(financial_model, risk_assessment)
+        
+        # Phase 4: Document generation with validation
+        memo = self.generate_documentation(context, financial_model, 
+                                          risk_assessment, deal_structure)
+        
+        return self.validate_and_refine(memo)
+
+class DataIngestionAgent:
+    """Specializes in data gathering and validation"""
+    
+    def gather_data(self, company_identifier):
+        sources = {
+            'corporate_filings': self.fetch_regulatory_filings(),
+            'financial_statements': self.fetch_financials(),
+            'market_data': self.fetch_market_intelligence(),
+            'news_sentiment': self.analyze_recent_news()
+        }
+        return self.validate_and_structure(sources)
+
+class RiskAssessmentAgent:
+    """Identifies and quantifies risks using pattern recognition"""
+    
+    def assess(self, financial_model):
+        risk_patterns = {
+            'leverage_concern': self.check_leverage_sustainability(),
+            'liquidity_risk': self.analyze_cash_generation(),
+            'market_risk': self.assess_competitive_position(),
+            'execution_risk': self.evaluate_management_track_record()
+        }
+        return self.generate_risk_matrix(risk_patterns)
+```
+
+### Prompt Engineering Framework
+
+```yaml
+Context_Injection_Pattern:
+  system_prompt: |
+    You are a senior credit analyst with 20 years of experience in 
+    leveraged finance. You have deep expertise in:
+    - {industry_specific_knowledge}
+    - {regulatory_framework}
+    - {market_conditions}
+  
+  task_prompt: |
+    Analyze {company_name} for a {facility_type} of {amount}.
+    
+    Context:
+    - Financial Performance: {financial_summary}
+    - Industry Position: {competitive_analysis}
+    - Management Quality: {management_assessment}
+    
+    Required Analysis:
+    1. Calculate debt capacity using three methods
+    2. Design covenant package per Simpson Thacher standards
+    3. Assess recovery in downside scenario
+    
+    Output Format:
+    - Executive Summary (500 words)
+    - Detailed Analysis (by section)
+    - Recommendation with conditions
+
+Chain_of_Thought_Pattern:
+  step_1: "First, let me analyze the historical financials..."
+  step_2: "Based on the trends, I'll project forward..."
+  step_3: "Given the risks identified, the structure should..."
+  step_4: "This leads to my recommendation of..."
+```
+
+---
+
+## 6. COVENANT STRUCTURING ONTOLOGY
+
+### Covenant Network Graph
+
+```yaml
+Covenant_Universe:
+  financial_covenants:
+    leverage_test:
+      - triggers: → Default_Event
+      - connects_to: → Pricing_Grid
+      - requires: → Quarterly_Testing
+      - allows: → Equity_Cure_Rights
+    
+    coverage_test:
+      - measures: → Debt_Service_Ability
+      - prevents: → Over_Leveraging
+      - links_to: → Restricted_Payments
+  
+  negative_covenants:
+    debt_incurrence:
+      - permits: → Ratio_Debt
+      - permits: → Basket_Debt
+      - blocks: → Structural_Subordination
+    
+    restricted_payments:
+      - allows: → Builder_Basket
+      - prevents: → Cash_Leakage
+      - links_to: → Leverage_Test
+  
+  cross_references:
+    - "If leverage > 4.0x" → "No dividends permitted"
+    - "If coverage < 2.0x" → "No acquisitions allowed"
+    - "If liquidity < $10mm" → "Weekly reporting required"
+```
+
+### Simpson Thacher Covenant Calibration
+
+```python
+def calibrate_covenants(company_profile, industry_norms):
+    """
+    Applies Simpson Thacher best practices to covenant design
+    """
+    
+    base_leverage = calculate_current_leverage(company_profile)
+    
+    # Set maintenance covenant with 25-35% cushion
+    maintenance_level = base_leverage * 1.30
+    
+    # Design step-downs based on deleveraging trajectory
+    step_downs = generate_step_down_schedule(
+        starting=maintenance_level,
+        target=industry_norms['target_leverage'],
+        periods=20  # quarters
+    )
+    
+    # Create permitted baskets
+    baskets = {
+        'general_debt': min(50_000_000, ebitda * 0.5),
+        'restricted_payments': build_rp_basket(company_profile),
+        'investments': calculate_investment_basket(growth_needs),
+        'asset_sales': determine_asset_sale_flexibility()
+    }
+    
+    return CovenantPackage(
+        financial_covenants=step_downs,
+        negative_covenants=baskets,
+        reporting_requirements=set_reporting_frequency(risk_level)
+    )
+```
+
+---
+
+## 7. SCENARIO MODELING FRAMEWORK
+
+### Probabilistic Scenario Engine
+
+```yaml
+Scenario_Generator:
+  base_case:
+    probability: 50%
+    assumptions:
+      - revenue_growth: historical_average
+      - margin: normalized_level
+      - capex: maintenance_only
+    
+    outputs:
+      - leverage_trajectory
+      - coverage_ratios
+      - free_cash_flow
+      - irr: expected_return
+  
+  downside_case:
+    probability: 30%
+    stress_factors:
+      - revenue_decline: -10%_to_-20%
+      - margin_compression: -300bps
+      - working_capital_drag: +5_days
+    
+    tests:
+      - covenant_compliance
+      - liquidity_adequacy
+      - recovery_analysis
+  
+  upside_case:
+    probability: 20%
+    growth_drivers:
+      - market_share_gains
+      - margin_expansion
+      - successful_new_products
+    
+    value_creation:
+      - multiple_expansion
+      - early_refinancing
+      - equity_value_creation
+
+Monte_Carlo_Simulation:
+  variables:
+    - revenue: normal_distribution(mean, std)
+    - margins: beta_distribution(alpha, beta)
+    - multiples: lognormal_distribution(mu, sigma)
+  
+  iterations: 10000
+  
+  outputs:
+    - probability_of_default
+    - expected_recovery
+    - value_at_risk
+    - expected_irr_distribution
+```
+
+---
+
+## 8. IMPLEMENTATION ROADMAP
+
+### Phase 1: Foundation (Weeks 1-4)
+- Set up data ingestion pipelines
+- Create financial statement parsers
+- Build industry classification system
+- Establish regulatory database connections
+
+### Phase 2: Modeling Engine (Weeks 5-8)
+- Develop three-statement model builder
+- Implement scenario generators
+- Create covenant calculation engine
+- Build valuation modules
+
+### Phase 3: AI Integration (Weeks 9-12)
+- Train specialized agents on historical memos
+- Fine-tune LLMs on credit terminology
+- Implement RAG system for precedents
+- Create feedback loops for improvement
+
+### Phase 4: Testing & Validation (Weeks 13-16)
+- Backtest on historical deals
+- Compare outputs to human-generated memos
+- Validate covenant calibrations
+- Stress test edge cases
+
+### Phase 5: Production Deployment (Weeks 17-20)
+- API development for system access
+- User interface creation
+- Integration with existing systems
+- Training and documentation
+
+---
+
+## 9. QUALITY ASSURANCE FRAMEWORK
+
+### Validation Checkpoints
+
+```yaml
+Data_Quality_Checks:
+  - completeness: "All required fields populated"
+  - consistency: "No contradictory information"
+  - accuracy: "Cross-reference with public sources"
+  - timeliness: "Data within acceptable date range"
+
+Model_Validation:
+  - balance_check: "Assets = Liabilities + Equity"
+  - cash_flow_tie: "Beginning + Changes = Ending"
+  - ratio_consistency: "All metrics calculate correctly"
+  - scenario_bounds: "Results within reasonable ranges"
+
+Covenant_Compliance:
+  - market_standard: "Terms align with precedents"
+  - internal_consistency: "No conflicting provisions"
+  - legal_validity: "Enforceable under applicable law"
+  - commercial_sense: "Workable for both parties"
+
+Document_Review:
+  - completeness: "All sections included"
+  - accuracy: "Numbers tie to models"
+  - clarity: "Clear, concise language"
+  - professionalism: "Appropriate tone and formatting"
+```
+
+---
+
+## 10. CONTINUOUS LEARNING SYSTEM
+
+### Feedback Loop Architecture
+
+```python
+class LearningSystem:
+    """
+    Continuously improves based on outcomes and feedback
+    """
+    
+    def capture_outcome(self, deal_id):
+        """Track actual vs predicted performance"""
+        
+        actual_performance = {
+            'default_occurred': bool,
+            'covenant_breaches': list,
+            'recovery_rate': float,
+            'irr_realized': float
+        }
+        
+        prediction_accuracy = self.compare_to_forecast(
+            actual_performance,
+            self.predictions[deal_id]
+        )
+        
+        self.update_models(prediction_accuracy)
+    
+    def incorporate_feedback(self, memo_id, feedback):
+        """Learn from user corrections and preferences"""
+        
+        adjustments = {
+            'covenant_calibration': feedback.get('covenant_changes'),
+            'risk_weights': feedback.get('risk_reassessment'),
+            'structure_mods': feedback.get('structural_changes')
+        }
+        
+        self.retrain_agents(adjustments)
+    
+    def market_intelligence_update(self):
+        """Incorporate new market developments"""
+        
+        new_precedents = self.fetch_recent_deals()
+        regulatory_changes = self.monitor_regulations()
+        market_conditions = self.assess_current_environment()
+        
+        self.update_ontology(new_precedents, regulatory_changes, market_conditions)
+```
+
+---
+
+## CONCLUSION
+
+This Investment Memo Generation Ontology transforms credit analysis from a linear, document-based process into an interconnected intelligence network. Like Qura's transformation of Swedish law, this system:
+
+1. **Creates millions of connections** between financial data points, risk factors, structural terms, and market precedents
+
+2. **Enables instant traversal** of relationships - select any financial metric and immediately see its impact on covenants, pricing, and structure
+
+3. **Provides complete context** - from the initial financial statements through to recovery analysis in bankruptcy
+
+4. **Learns continuously** - improving predictions and recommendations based on actual outcomes
+
+5. **Scales infinitely** - can analyze hundreds of deals simultaneously while maintaining consistency
+
+The system represents a paradigm shift from traditional credit analysis to AI-native investment decisioning, reducing analysis time from weeks to hours while improving accuracy and consistency.
+
+---
+
+## APPENDIX: REFERENCE TABLES
+
+### A. Industry-Specific Adjustments
+[Detailed industry modification tables]
+
+### B. Regulatory Framework Mappings
+[Jurisdiction-specific requirements]
+
+### C. Covenant Precedent Database
+[Historical deal terms by category]
+
+### D. Recovery Rate Statistics
+[Historical recovery data by asset class]
+
+### E. IRR/MOIC Benchmarks
+[Expected returns by risk category]
+
+---
+
+*Version 1.0 - November 2024*
+*Based on analysis of workbench prompt template, Simpson Thacher handbook, and example investment memoranda*
